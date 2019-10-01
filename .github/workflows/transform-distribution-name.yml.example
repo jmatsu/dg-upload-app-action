@@ -20,5 +20,5 @@ jobs:
         platform: android
         app_id: ${{ secrets.TEST_APPLICATION_ID }}
         api_token: ${{ secrets.DEPLOYGATE_API_TOKEN }}
-        distribution_name: ${{ steps.tranform-ref.outputs.distribution_name }}
-        ignore_api_failure: true
+        distribution_find_by: name
+        distribution_id: ${{ steps.tranform-ref.outputs.distribution_name }}
