@@ -1,0 +1,58 @@
+name: This action uploads an application file to DeployGate
+author: Jumpei Matsuda
+description: An action to upload an application file to DeployGate
+inputs:
+  api_token:
+    descritpion: An api token of DeployGate. Required but this can be passed through environment variables and environment variable is preferred.
+    required: false
+  app_owner_name:
+    desciription: An app owner name on DeployGate. Required but this can be passed through environment variables.
+    required: false
+  app_file_path:
+    desciription: A path to an app file on your workflow directory.
+    required: true
+  message:
+    description: A short message to explain this update
+    required: false
+  disable_notification:
+    description: iOS only option. Specify false if iOS's notifications should be enabled.
+    required: false
+    default: true
+  public:
+    description: Specify true if an application to be uploaded should be public
+    required: false
+    default: false
+  distribution_find_by:
+    description: Enum. Specify either key or name
+    required: false
+  distribution_id:
+    description: A name or a key of a distribution to update(create). As for name, this action uses branch name unless specified. Required if distribution_find_by is specified.
+    required: false
+  release_note:
+    description: A release note of this revision. This will be shown in a distribution.
+    required: false
+  exclude_pattern:
+    description: A pattern to ignore names which you do not want to destroy. The syntax is based on Bash 4.x
+    required: false
+    default: ''
+  ignore_api_failure:
+    description: Specify true if this action should not exit with any failure status when calling DeployGate API.
+    require: false
+    default: false
+outputs:
+  response_json_path:
+    description: A path to an api response
+  package_name:
+    description: The package name of the uploaded app
+  download_url:
+    description: The URL to download the uploaded application file
+  distribution_key:
+    description: The access key of the created/updated distribution
+  distribution_url:
+    description: The created/updated distribution URL if exists
+runs:
+  using: 'docker'
+  image: './Dockerfile'
+branding:
+  color: 'dark-gray'
+  icon: 'thumbs-up'

@@ -1,0 +1,22 @@
+name: Examples for those who want to exclude some branches/tags
+
+on: 
+  push:
+    ignore-branches:
+      - refactor/**
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: jmatsu/dg-upload-app-action@master
+      with:
+        app_owner_name: ${{ secrets.TEST_USER_ID }}
+        platform: android
+        app_id: ${{ secrets.TEST_APPLICATION_ID }}
+        api_token: ${{ secrets.DEPLOYGATE_API_TOKEN }}
+        distribution_id: ${{ github.context.ref }}
+        distribution_find_by: name
+        ignore_api_failure: true

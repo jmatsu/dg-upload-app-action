@@ -1,0 +1,12 @@
+name: Tranform a deleted ref name
+author: Jumpei Matsuda
+description: A sample to transform a branch ref to a distribution name
+outputs:
+  distribution_name:
+    description: A transformation result
+runs:
+  using: 'node12'
+  main: 'main.js'
+branding:
+  color: 'white'
+  icon: 'anchor'

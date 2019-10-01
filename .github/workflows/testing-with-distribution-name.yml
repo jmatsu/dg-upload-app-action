@@ -1,0 +1,22 @@
+name: Testing for finding a distribution by name
+
+on: 
+  push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+    - uses: ./
+      with:
+        app_owner_name: ${{ secrets.TEST_USER_ID }}
+        api_token: ${{ secrets.DEPLOYGATE_API_TOKEN }}
+        app_file_path: ./sample/com.deploygate.gradlesample.flavor1.apk
+        distribution_find_by: name
+        distribution_id: test_via_action
+        public: true
