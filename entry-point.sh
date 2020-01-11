@@ -195,7 +195,7 @@ curl -sSL \
   -o "$response"
 
 # Come here if the api call has been succeeded or ignore_api_failure is true
-github::set_output "error_response" "$(cat response | jq -r '.error')"
+github::set_output "error_response" "$(cat $response | jq -r '.error')"
 
 cat "$response" | \
   jq -r '
