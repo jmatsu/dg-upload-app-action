@@ -1,0 +1,41 @@
+name: "build-test"
+on:
+  pull_request:
+    types: [opened, ready_for_review, synchronize]
+  push:
+    branches:
+      - master
+      - 'releases/*'
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: yarn install
+    - run: yarn build
+    - run: yarn format-check
+    - run: yarn lint
+    - run: yarn pack
+  test-all:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: yarn install
+    - run: yarn build
+    - run: echo INPUT_API_TOKEN='${{ secrets.DEPLOYGATE_API_TOKEN }}' > __smoke_tests__/.env
+    - run: echo INPUT_APP_OWNER_NAME='${{ secrets.DEPLOYGATE_APP_OWNER_NAME }}' >> __smoke_tests__/.env
+    - run: yarn test-all
+  test-bundle:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./
+      id: upload
+      with: 
+        api_token: ${{ secrets.DEPLOYGATE_API_TOKEN }}
+        app_owner_name: ${{ secrets.DEPLOYGATE_APP_OWNER_NAME }}
+        app_file_path: ./fixtures/DeployGateSample.apk
+    - run: cat ${{ steps.upload.outputs.response_json_path }}

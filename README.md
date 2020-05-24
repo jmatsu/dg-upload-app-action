@@ -39,6 +39,8 @@ NOTE: [versioning documentation](https://github.com/actions/toolkit/blob/master/
 
 [MIT License](LICENSE)
 
+- [actions/typescript-action's LICENSE](https://github.com/actions/typescript-action/blob/master/LICENSE) (GitHub, Inc. and contributors) - this project uses the template from [actions/typescript-action](https://github.com/actions/typescript-action)
+
 ## Release
 
 Actions are run from GitHub repos so we will checkin the packed dist folder. 
@@ -47,9 +49,9 @@ Then run [ncc](https://github.com/zeit/ncc) and push the results:
 ```bash
 # Edit VERSION to the latest version e.g. v0.2.1
 $ git switch [-c] releases/v0.2
-$ yarn pack
-$ git add -f dist
-$ git commit -a -m "updates the production distribution"
+$ yarn release
+$ git add dist
+$ git commit -m "updates the production distribution"
 $ git tag <version>
 $ git push origin releases/v0.2
 ```

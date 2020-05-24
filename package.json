@@ -10,7 +10,7 @@
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/*.ts src/**/*.ts",
     "lint:fix": "eslint src/*.ts src/**/*.ts --fix",
-    "pack": "ncc build",
+    "release": "ncc build",
     "test": "yarn test-unit",
     "test-unit": "jest --testRegex=\"/__tests__/.*\\.test\\.ts\"",
     "test-integration": "jest --testRegex=\"/__integration_tests__/.*\\.test\\.ts\"",
