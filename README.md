@@ -6,6 +6,8 @@
 
 This action uploads an application file to DeployGate. (Not official action of DeployGate.)
 
+NOTE: `v0.2` does not have a backward compatibility with `v0.1`.
+
 ## Versions
 
 See [Releases](https://github.com/jmatsu/dg-upload-app-action/releases) page.
