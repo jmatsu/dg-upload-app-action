@@ -1,59 +1,7 @@
+# Dependency directory
+node_modules
 
-# Created by https://www.gitignore.io/api/node,emacs,vim
-# Edit at https://www.gitignore.io/?templates=node,emacs,vim
-
-### Emacs ###
-# -*- mode: gitignore; -*-
-*~
-\#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
-*.elc
-auto-save-list
-tramp
-.\#*
-
-# Org-mode
-.org-id-locations
-*_archive
-
-# flymake-mode
-*_flymake.*
-
-# eshell files
-/eshell/history
-/eshell/lastdir
-
-# elpa packages
-/elpa/
-
-# reftex files
-*.rel
-
-# AUCTeX auto folder
-/auto/
-
-# cask packages
-.cask/
-dist/
-
-# Flycheck
-flycheck_*.el
-
-# server auth directory
-/server/
-
-# projectiles files
-.projectile
-
-# directory configuration
-.dir-locals.el
-
-# network security
-/network-security.data
-
-
-### Node ###
+# Rest pulled from https://github.com/github/gitignore/blob/master/Node.gitignore
 # Logs
 logs
 *.log
@@ -94,7 +42,6 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -131,9 +78,6 @@ typings/
 # nuxt.js build output
 .nuxt
 
-# react / gatsby 
-public/
-
 # vuepress build output
 .vuepress/dist
 
@@ -146,23 +90,10 @@ public/
 # DynamoDB Local files
 .dynamodb/
 
-### Vim ###
-# Swap
-[._]*.s[a-v][a-z]
-[._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
-[._]ss[a-gi-z]
-[._]sw[a-p]
+# OS metadata
+.DS_Store
+Thumbs.db
 
-# Session
-Session.vim
-Sessionx.vim
-
-# Temporary
-.netrwhist
-# Auto-generated tag files
-tags
-# Persistent undo
-[._]*.un~
-
-# End of https://www.gitignore.io/api/node,emacs,vim
+# Ignore built ts files
+__tests__/runner/*
+lib/**/*

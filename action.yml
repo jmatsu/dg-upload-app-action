@@ -1,6 +1,9 @@
 name: This action uploads an application file to DeployGate
 author: Jumpei Matsuda
 description: An action to upload an application file to DeployGate
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
 inputs:
   api_token:
     descritpion: An api token of DeployGate. Required but this can be passed through environment variables and environment variable is preferred.
@@ -31,6 +34,10 @@ inputs:
   release_note:
     description: A release note of this revision. This will be shown in a distribution.
     required: false
+  pin:
+    description: Specify true if the application file should be pinned. This may fail if the number of the pinned files exceeds the maximum.
+    required: false
+    default: false
   exclude_pattern:
     description: A pattern to ignore names which you do not want to destroy. The syntax is based on Bash 4.x
     required: false
@@ -50,9 +57,10 @@ outputs:
     description: The access key of the created/updated distribution
   distribution_url:
     description: The created/updated distribution URL if exists
-runs:
-  using: 'docker'
-  image: './Dockerfile'
+  uploaded:
+    description: True if upload has been succeeded, otherwise false.
+  pinned:
+    description: True if the revision has been pinned, otherwise false.
 branding:
   color: 'dark-gray'
   icon: 'thumbs-up'
