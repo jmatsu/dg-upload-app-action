@@ -29,7 +29,7 @@
   "author": "jmatsu",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.0",
+    "@actions/core": "^1.2.6",
     "axios": "^0.19.2",
     "form-data": "^3.0.0",
     "fs": "^0.0.1-security",
