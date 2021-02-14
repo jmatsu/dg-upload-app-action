@@ -10,10 +10,9 @@
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/*.ts src/**/*.ts",
     "lint:fix": "eslint src/*.ts src/**/*.ts --fix",
-    "release": "ncc build",
+    "release": "ncc build --source-ma",
     "test": "yarn test-unit",
     "test-unit": "jest --testRegex=\"/__tests__/.*\\.test\\.ts\"",
-    "test-integration": "jest --testRegex=\"/__integration_tests__/.*\\.test\\.ts\"",
     "test-smoke": "yarn build && jest --testRegex=\"/__smoke_tests__/.*\\.test\\.ts\"",
     "test-all": "yarn build && jest"
   },
@@ -29,8 +28,8 @@
   "author": "jmatsu",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.0",
-    "axios": "^0.19.2",
+    "@actions/core": "^1.2.6",
+    "axios": "^0.21.1",
     "form-data": "^3.0.0",
     "fs": "^0.0.1-security",
     "tmp": "^0.2.1"
