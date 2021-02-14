@@ -1,1 +1,7 @@
-export const sleep: (millis: number) => void = async millis => setTimeout(() => {}, millis);
+export const sleep: (millis: number) => Promise<boolean> = async millis => {
+  return new Promise(resolver => {
+    setTimeout(() => {
+      resolver(true);
+    }, millis);
+  });
+};
