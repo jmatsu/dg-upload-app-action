@@ -2556,6 +2556,8 @@ exports.createAxiosInstance = (baseURL, token) => {
         headers: {
             Authorization: `token ${token}`,
         },
+        maxBodyLength: 5 * 1024 * 1024 * 1024,
+        maxContentLength: 5 * 1024 * 1024 * 1024,
     });
 };
 function normalizeResponse(request) {
@@ -7871,7 +7873,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sleep = void 0;
 exports.sleep = (millis) => __awaiter(void 0, void 0, void 0, function* () {
-    return new Promise((resolver) => {
+    return new Promise(resolver => {
         setTimeout(() => {
             resolver(true);
         }, millis);
