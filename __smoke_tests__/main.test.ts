@@ -13,12 +13,18 @@ const runAction: (options: { expectSuccess: boolean }) => string = ({ expectSucc
   };
 
   try {
-    const stdout = cp.execSync(`node ${ip}`, options).toString();
+    const stdout = cp.execFileSync(process.execPath, [ip], options).toString();
 
+    if (!expectSuccess) {
+      console.log('unexpected successful exec', stdout);
+    }
     expect(expectSuccess).toBeTruthy();
 
     return stdout;
   } catch (e) {
+    if (expectSuccess) {
+      console.log('unexpected failure exec', e, e.stdout.toString(), e.stderr.toString());
+    }
     expect(expectSuccess).toBeFalsy();
 
     return e.stderr;

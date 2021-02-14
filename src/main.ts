@@ -80,7 +80,7 @@ import { UploadResponse } from './deploygate/upload_response';
       if (options.pin) {
         core.debug(`pin option is enabled so this action will try to pin the revision (${app.revision})`);
 
-        sleep(5 * 1000); // the server will return 404 response while processing so wait for a sec.
+        await sleep(5 * 1000); // the server will return 404 response while processing so wait for a sec.
 
         const pinResponse = await client.pin(options.appOwnerName, app.os_name, app.package_name, app.revision);
 
