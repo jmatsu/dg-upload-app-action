@@ -110,6 +110,7 @@ export const createClient: (options: ClientOptions) => Client = options => {
       const request = instance.post(`/users/${appOwnerName}/apps`, form, {
         headers: form.getHeaders(),
         maxBodyLength: 5 * 1024 * 1024 * 1024,
+        maxContentLength: 5 * 1024 * 1024 * 1024,
       });
       return normalizeResponse(request);
     },
