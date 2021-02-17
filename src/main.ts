@@ -34,6 +34,7 @@ import { UploadResponse } from './deploygate/upload_response';
       disableIOSNotification: options.disableIOSNotification,
       message: options.message,
       visibility: options.visible ? 'public' : 'private',
+      distribution: options.distribution,
     };
 
     core.debug('upload options has been built:');
