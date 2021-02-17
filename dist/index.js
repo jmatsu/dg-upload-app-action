@@ -3850,6 +3850,7 @@ const sleep_1 = __webpack_require__(557);
             disableIOSNotification: options.disableIOSNotification,
             message: options.message,
             visibility: options.visible ? 'public' : 'private',
+            distribution: options.distribution,
         };
         core.debug('upload options has been built:');
         core.debug(JSON.stringify(uploadOptions));
