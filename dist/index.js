@@ -8907,7 +8907,7 @@ function plural(ms, msAbs, n, name) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.version = void 0;
-exports.version = 'v0.2.0';
+exports.version = 'v0.2.2';
 
 
 /***/ }),
