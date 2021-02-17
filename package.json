@@ -10,7 +10,7 @@
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/*.ts src/**/*.ts",
     "lint:fix": "eslint src/*.ts src/**/*.ts --fix",
-    "release": "rm -fr lib && npm run build && ncc build --source-map",
+    "release": "rm -fr lib && yarn build && ncc build --source-map",
     "test": "yarn test-unit",
     "test-unit": "jest --testRegex=\"/__tests__/.*\\.test\\.ts\"",
     "test-smoke": "yarn build && jest --testRegex=\"/__smoke_tests__/.*\\.test\\.ts\"",
