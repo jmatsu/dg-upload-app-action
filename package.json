@@ -28,7 +28,7 @@
   "author": "jmatsu",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.9.1",
     "axios": "^0.21.1",
     "form-data": "^3.0.0",
     "fs": "^0.0.1-security",
